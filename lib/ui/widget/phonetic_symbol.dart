@@ -24,7 +24,6 @@ class _PhoneticSymbolState extends State<PhoneticSymbol> {
     if (widget.voice != null && widget.voice!.isEmpty) {
       return;
     }
-
     player.play();
   }
 
@@ -32,7 +31,7 @@ class _PhoneticSymbolState extends State<PhoneticSymbol> {
   void initState() {
     player =
         Player.network(widget.voice, id: widget.voice.hashCode, once: false);
-    player.callback = (event) {};
+    player.callback = (event) {log('$event');};
     super.initState();
   }
   @override

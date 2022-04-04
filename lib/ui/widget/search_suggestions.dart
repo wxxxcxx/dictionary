@@ -25,7 +25,7 @@ class _SearchSuggestionsState extends State<SearchSuggestions> {
           alignment: Alignment.topCenter,
           margin: const EdgeInsets.all(10),
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 10),
-          child: const Text('No suggestions'));
+          child: const Text('空'));
     }
     return ListView.separated(
       physics: const BouncingScrollPhysics(),

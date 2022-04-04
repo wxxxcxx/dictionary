@@ -504,11 +504,9 @@ packages:
   window_manager:
     dependency: "direct main"
     description:
-      path: "."
-      ref: main
-      resolved-ref: "968b6aff8c2e7f25f73bcc5f52e35a3998e9f7fc"
-      url: "https://github.com/leanflutter/window_manager.git"
-    source: git
+      name: window_manager
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.2.1"
   xdg_directories:
     dependency: transitive

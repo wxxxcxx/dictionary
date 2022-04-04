@@ -25,7 +25,7 @@ class _StarsPageState extends State<StarsPage> {
         if (snapshot.hasData) {
           if (snapshot.data!.isEmpty) {
             return const Center(
-              child: Text('No stars'),
+              child: Text('空'),
             );
           }
 

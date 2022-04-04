@@ -16,9 +16,10 @@ void main() async {
     await windowManager.ensureInitialized();
     // Use it only after calling `hiddenWindowAtLaunch`
     windowManager.waitUntilReadyToShow().then((_) async {
-      await windowManager.setTitleBarStyle(TitleBarStyle.normal);
-      // await windowManager.setAsFrameless();
+      // await windowManager.setTitleBarStyle(TitleBarStyle.hidden);
+      await windowManager.setAsFrameless();
       // await windowManager.setAlwaysOnTop(true);
+      await windowManager.setResizable(true);
       await windowManager.setBackgroundColor(Colors.transparent);
       await windowManager.center();
       await windowManager.setSize(const Size(500, 600));

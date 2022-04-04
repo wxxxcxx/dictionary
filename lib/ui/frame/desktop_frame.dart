@@ -77,11 +77,7 @@ class _DesktopFrameState extends State<DesktopFrame> {
         ),
         child: Column(
           children: [
-            GestureDetector(
-              onPanStart: (detail) {
-                // detail.
-                windowManager.startDragging();
-              },
+            DragToMoveArea(
               child: Container(
                 color: Colors.transparent,
                 margin: const EdgeInsets.only(
