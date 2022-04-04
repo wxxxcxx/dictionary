@@ -1,4 +1,5 @@
 
+import 'package:dictionary/ui/widget/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
@@ -40,22 +41,24 @@ class _MobileFrameState extends State<MobileFrame> {
               ? const Color(0xFFEFEFEF)
               : const Color(0xFF21252B),
           body: SafeArea(
-            child: Column(
-              children: [
-                Expanded(
-                  child: PageView(
-                    physics: const BouncingScrollPhysics(),
-                    pageSnapping: true,
-                    controller: _pageController,
-                    onPageChanged: (index) {
-                      setState(() {
-                        _currentPageIndex = index;
-                      });
-                    },
-                    children: pages,
+            child: ToastWrapper(
+              child: Column(
+                children: [
+                  Expanded(
+                    child: PageView(
+                      physics: const BouncingScrollPhysics(),
+                      pageSnapping: true,
+                      controller: _pageController,
+                      onPageChanged: (index) {
+                        setState(() {
+                          _currentPageIndex = index;
+                        });
+                      },
+                      children: pages,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           bottomNavigationBar: Container(

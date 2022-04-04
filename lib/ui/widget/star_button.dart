@@ -27,7 +27,7 @@ class _StarButtonState extends State<StarButton> {
       await StarredWordRepository.instance.remove(widget.word);
     } else {
       await StarredWordRepository.instance.add(widget.word);
-      ToastNotification('Starred').dispatch(context);
+      ToastNotification('收藏成功').dispatch(context);
     }
     await loadStarStatus();
   }

@@ -55,7 +55,7 @@ class _SearchInputState extends State<SearchInput> {
                 textInputAction: TextInputAction.search,
                 decoration: const InputDecoration(
                   border: InputBorder.none,
-                  hintText: 'Hello',
+                  hintText: 'hello',
                 ),
                 onChanged: (text) {
                   if (_debounce?.isActive ?? false) {

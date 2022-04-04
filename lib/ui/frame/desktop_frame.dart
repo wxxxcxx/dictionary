@@ -1,4 +1,5 @@
 
+import 'package:dictionary/ui/widget/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
@@ -157,15 +158,17 @@ class _DesktopFrameState extends State<DesktopFrame> {
                 padding: const EdgeInsets.fromLTRB(5, 0, 5, 5),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: PageView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    controller: _pageController,
-                    onPageChanged: (index) {
-                      setState(() {
-                        _currentPageIndex = index;
-                      });
-                    },
-                    children: pages,
+                  child: ToastWrapper(
+                    child: PageView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      controller: _pageController,
+                      onPageChanged: (index) {
+                        setState(() {
+                          _currentPageIndex = index;
+                        });
+                      },
+                      children: pages,
+                    ),
                   ),
                 ),
               ),

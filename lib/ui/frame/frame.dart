@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dictionary/ui/widget/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/ui/frame/desktop_frame.dart';
 import 'package:dictionary/ui/frame/mobile_frame.dart';
