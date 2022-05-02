@@ -30,10 +30,13 @@ class _PhoneticSymbolState extends State<PhoneticSymbol> {
   @override
   void initState() {
     player =
-        Player.network(widget.voice, id: widget.voice.hashCode, once: false);
-    player.callback = (event) {log('$event');};
+        Player.network(widget.voice!, id: widget.voice.hashCode, once: false);
+    player.callback = (event) {
+      log('$event');
+    };
     super.initState();
   }
+
   @override
   void dispose() {
     player.dispose();

@@ -1,8 +1,8 @@
-
 import 'package:dictionary/ui/widget/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
+import 'package:screen_retriever/screen_retriever.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:dictionary/src/model.dart';
 import 'package:dictionary/src/shortcut.dart';
@@ -38,10 +38,14 @@ class _DesktopFrameState extends State<DesktopFrame> {
 
   @override
   void initState() {
-    ShortcutService.instance.addListener((type) {
+    ShortcutService.instance.addListener((type) async {
       if (type == ShortcutEventType.querySelection ||
           type == ShortcutEventType.queryClipboard) {
-        windowManager.focus();
+        var position = await ScreenRetriever.instance.getCursorScreenPoint();
+        await windowManager.setPosition(position.translate(0, 30));
+        await windowManager.setAlwaysOnTop(true);
+        await windowManager.setAlwaysOnTop(false);
+        await windowManager.show();
         _pageController.jumpToPage(0);
       }
     });
@@ -102,6 +106,7 @@ class _DesktopFrameState extends State<DesktopFrame> {
                             duration: const Duration(milliseconds: 200),
                             curve: Curves.ease,
                           );
+                          // _pageController.jumpToPage(0);
                         },
                         icon: _currentPageIndex == 0
                             ? const Icon(Ionicons.home)
@@ -121,6 +126,7 @@ class _DesktopFrameState extends State<DesktopFrame> {
                             duration: const Duration(milliseconds: 200),
                             curve: Curves.ease,
                           );
+                          // _pageController.jumpToPage(1);
                         },
                         icon: _currentPageIndex == 1
                             ? const Icon(Ionicons.star)
@@ -143,6 +149,7 @@ class _DesktopFrameState extends State<DesktopFrame> {
                             duration: const Duration(milliseconds: 200),
                             curve: Curves.ease,
                           );
+                          // _pageController.jumpToPage(2);
                         },
                         icon: _currentPageIndex == 2
                             ? const Icon(Ionicons.settings_sharp)

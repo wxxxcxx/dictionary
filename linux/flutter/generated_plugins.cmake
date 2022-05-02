@@ -3,9 +3,13 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  clipboard_watcher
   dart_vlc
   hotkey_manager
+  screen_retriever
   screen_text_extractor
+  tray_manager
+  url_launcher_linux
   window_manager
 )
 

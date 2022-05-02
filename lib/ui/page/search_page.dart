@@ -44,9 +44,9 @@ class _SearchPageState extends State<SearchPage> {
         case ShortcutEventType.querySelection:
           {
             ScreenTextExtractor.instance
-                .extractFromScreenSelection()
+                .extract(mode: ExtractMode.screenSelection)
                 .then((value) {
-              if (value.text != null) {
+              if (value != null) {
                 controller.text = value.text!;
                 showDetail(value.text!);
               }
@@ -55,8 +55,10 @@ class _SearchPageState extends State<SearchPage> {
           break;
         case ShortcutEventType.queryClipboard:
           {
-            ScreenTextExtractor.instance.extractFromClipboard().then((value) {
-              if (value.text != null) {
+            ScreenTextExtractor.instance
+                .extract(mode: ExtractMode.clipboard)
+                .then((value) {
+              if (value != null) {
                 controller.text = value.text!;
                 showDetail(value.text!);
               }
@@ -108,8 +110,8 @@ class _SearchPageState extends State<SearchPage> {
                   : SearchSuggestions(
                       word: currentWord,
                       onSelect: (word) {
-                        if(controller.text.isEmpty){
-                          controller.text=word.word;
+                        if (controller.text.isEmpty) {
+                          controller.text = word.word;
                         }
                         showDetail(word.word);
                       },

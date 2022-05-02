@@ -11,7 +11,14 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.4
-  window_manager: ^0.2.1
+  window_manager:
+    git:
+      url: https://github.com/leanflutter/window_manager.git
+      ref: main
+  tray_manager:
+    git:
+      url: https://github.com/leanflutter/tray_manager.git
+      ref: main
   hotkey_manager:
     git:
       url: https://github.com/leanflutter/hotkey_manager.git
@@ -20,10 +27,13 @@ dependencies:
     git:
       url: https://github.com/leanflutter/screen_text_extractor.git
       ref: main
+  screen_retriever: ^0.1.0
   path_provider: ^2.0.9
   ionicons: ^0.1.2
   provider: ^6.0.2
   kplayer: ^0.1.11
+  url_launcher: ^6.0.20
+  logging: ^1.0.2
 
 dev_dependencies:
   flutter_test:

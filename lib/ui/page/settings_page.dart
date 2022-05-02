@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dictionary/src/history_repository.dart';
+import 'package:dictionary/src/onedrive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hotkey_manager/hotkey_manager.dart';
@@ -175,6 +176,19 @@ class SettingsPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Text('退出'),
+                Icon(Ionicons.exit_outline),
+              ],
+            ),
+          ),
+
+          OutlinedButton(
+            onPressed: () {
+              OneDrive().authorize();
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text('Onedrive'),
                 Icon(Ionicons.exit_outline),
               ],
             ),
